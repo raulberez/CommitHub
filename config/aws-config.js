@@ -1,32 +1,18 @@
-const AWS = require("aws-sdk");
+const { S3Client } = require("@aws-sdk/client-s3");
 
-AWS.config.update({ region: "ap-south-1"});
+const s3 = new S3Client({
+    region: process.env.AWS_REGION,
+    credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+    }
+});
 
-const s3 = new AWS.S3();
+const S3_BUCKET = process.env.S3_BUCKET;
 
-const S3_BUCKET= "commithub-storage";
-
-module.exports = {s3,S3_BUCKET};
-
-
-
-
-
-
-
-// {
-//     "Version": "2012-10-17",
-//         "Statement": [
-//             {
-//                 "Effect": "Allow",
-//                 "Principal": {
-//                     "AWS": "arn:aws:iam::170145218658:user/sanjeev-admin"
-//                 },
-//                 "Action": "s3:*",
-//                 "Resource": [
-//                     "arn:aws:s3:::commithub-storage",
-//                     "arn:aws:s3:::commithub-storage/*"
-//                 ]
-//             }
-//         ]
-// }
+module.exports = { s3, S3_BUCKET };
+// const AWS = require("aws-sdk");
+// AWS.config.update({ region: "ap-south-1"});
+// const s3 = new AWS.S3();
+// const S3_BUCKET= "commithub-storage";
+// module.exports = {s3,S3_BUCKET};
