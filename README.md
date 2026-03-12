@@ -30,17 +30,8 @@ The core logic revolves around the hidden `.CommitHub` directory, which manages 
 * **Branching Model**  
   Branches work as pointers to commit IDs. Switching branches updates the `HEAD` pointer and restores the working directory to that commit's state.
 
-```text
-.CommitHub/
-├── HEAD                # Points to the current active branch
-├── branches/           # Stores latest commit ID for each branch
-├── commits/            # Snapshot database
-│   └── <commit-id>/
-│       ├── commit.json # Commit metadata (message, time)
-│       └── data/       # Snapshot of tracked files
-└── staging/            # Temporary index before committing
-```
-Getting Started
+
+## Getting Started
 Prerequisites
 
 Node.js (v16 or higher)
