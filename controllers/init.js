@@ -25,10 +25,10 @@ async function initRepo() {
       await fs.mkdir(stagingPath, { recursive: true });
       await fs.mkdir(branchPath, { recursive: true });
 
-      // HEAD
+      // FIXED HEAD
       await fs.writeFile(
          path.join(repoPath, "HEAD"),
-         "main"
+         "ref: refs/heads/main"
       );
 
       // Default branch
@@ -41,7 +41,7 @@ async function initRepo() {
       await fs.writeFile(
          path.join(repoPath, "config.json"),
          JSON.stringify({
-            bucket: process.env.S3_BUCKET || null,
+            author: null,
             currentBranch: "main",
             remotes: {}
          }, null, 2)
