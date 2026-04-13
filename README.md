@@ -30,13 +30,15 @@ The core logic revolves around the hidden `.CommitHub` directory, which manages 
 * **Branching Model**  
   Branches work as pointers to commit IDs. Switching branches updates the `HEAD` pointer and restores the working directory to that commit's state.
 
+---
 
 ## Getting Started
-Prerequisites
 
-Node.js (v16 or higher)
+### Prerequisites
 
-AWS credentials configured (for remote features)
+- Node.js (v16 or higher)
+- AWS credentials configured (for remote features)
+
 ### Installation
 
 ```text
@@ -44,7 +46,9 @@ git clone https://github.com/your-username/commithub.git
 cd commithub
 npm install
 ```
+
 ### Basic Workflow
+
 ```text
 # Initialize a repository
 node index.js init
@@ -61,22 +65,28 @@ node index.js branch feature-ui
 # Switch to that branch
 node index.js checkout feature-ui
 ```
-***Remote Sync (AWS S3)***
+
+### Remote Sync (AWS S3)
 
 CommitHub uses the AWS SDK to treat an S3 bucket as a remote repository.
-**Push**
+
+**Push**  
 Uploads the local .CommitHub state to the configured S3 bucket.
-**Pull**
+
+**Pull**  
 Downloads the remote state and updates the local repository accordingly.
+
 This simulates a simplified GitHub-style push and pull workflow.
 
-***Tech Stack***
-Runtime: Node.js
+---
 
-CLI Framework: yargs
+## Tech Stack
 
-Cloud Storage: AWS S3
+- **Runtime:** Node.js
+- **CLI Framework:** yargs
+- **Cloud Storage:** AWS S3
+- **Core Logic:** Node.js `fs` module for repository state management
 
-Core Logic: Node.js fs module for repository state management
+---
 
 # Author :- Kr Sanjeev
