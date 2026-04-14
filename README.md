@@ -6,6 +6,8 @@ I built **CommitHub** to explore and understand the internal mechanics behind ve
 CommitHub is a lightweight **CLI-based version control tool** that recreates some of the core functionality of Git.  
 It also includes a **remote synchronization feature using AWS S3**, allowing commits to be pushed and pulled similar to a remote repository.
 
+> **Personal fork note:** I'm using this to study how Git internals work. Mainly following along and tweaking things as I learn.
+
 ---
 
 ## Why I Built This
@@ -64,6 +66,9 @@ node index.js branch feature-ui
 
 # Switch to that branch
 node index.js checkout feature-ui
+
+# View commit history (useful for tracing what changed and when)
+node index.js log
 ```
 
 ### Remote Sync (AWS S3)
