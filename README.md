@@ -58,6 +58,9 @@ node index.js init
 # Stage a file
 node index.js add file.txt
 
+# Stage all changed files at once (shorthand I use a lot)
+node index.js add .
+
 # Create a commit
 node index.js commit -m "Fixed the login logic"
 
